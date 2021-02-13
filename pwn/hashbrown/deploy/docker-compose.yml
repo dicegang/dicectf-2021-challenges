@@ -1,0 +1,26 @@
+version: '2.4'
+networks:
+  jail: {}
+services:
+  jail:
+    image: gcr.io/dicegang/ctf/2021/rcds-hashbrown-main:${IMAGE_TAG}
+    restart: always
+    read_only: true
+    cap_drop:
+      - all
+    cap_add:
+      - chown
+      - setuid
+      - setgid
+      - sys_admin
+      - setpcap
+    security_opt:
+      - apparmor=unconfined
+      - seccomp=seccomp.json
+    networks:
+      - jail
+    ports:
+      - "${EXTERN_PORT}:5000"
+    environment:
+      HASHCASH_BITS:
+      JAIL_CONNS_PER_IP:

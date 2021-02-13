@@ -1,0 +1,37 @@
+name: Lost in Your Eyes
+author: aplet123
+description: |-
+  Your eyes are like a maze, and I hate mazes, so help me escape.
+
+  `{{nc}}`
+provide:
+  - ./lost_in_your_eyes
+flag:
+  file: ./flag.txt
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports:
+    - 5000
+    securityContext:
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - all
+        add:
+          - chown
+          - setuid
+          - setgid
+          - sys_admin
+          - setpcap
+      seccompProfile: jail.json
+    k8s:
+      deployment:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+expose:
+  main:
+  - target: 5000
+    tcp: 31578

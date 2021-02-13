@@ -1,0 +1,1 @@
+gcc -fno-stack-protector -no-pie ./babyrop.c -o babyrop && ./babyrop

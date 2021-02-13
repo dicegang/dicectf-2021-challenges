@@ -1,0 +1,20 @@
+name: Web Utils
+author: BrownieInMotion, Jim
+description: |-
+  My friend made [this dumb tool]({{ url }}); can you try and steal his cookies? If you send me a link, [I can pass it along](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=web-utils).
+
+flag: dice{f1r5t_u53ful_j4v45cr1pt_r3d1r3ct}
+
+provide:
+  - app.zip
+
+containers:
+  main:
+    build: .
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: web-utils

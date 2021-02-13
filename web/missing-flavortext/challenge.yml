@@ -1,0 +1,22 @@
+name: Missing Flavortext
+author: BrownieInMotion
+description: |-
+  Hmm, it looks like there's no flavortext here. Can you try and find it?
+
+  {{link}}
+
+flag: dice{sq1i_d03sn7_3v3n_3x1s7_4nym0r3}
+
+provide:
+  - index.js
+
+containers:
+  main:
+    build: .
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: missing-flavortext

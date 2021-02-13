@@ -1,0 +1,17 @@
+name: Adult CSP
+author: notdeghost
+description: |-  
+  CSP can stand for many things
+
+  [Baby CSP](https://2020.justctf.team/challenges/14) was too hard for us, we're bad at real webs - try Adult CSP.
+
+  [Admin Bot](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-babier-csp?challenge=babier-csp)
+
+flag: dice{pwns_ar3_th3_hands_0f_fate_13515}
+
+provide:
+- README.md
+- mojo_bindings.tar.gz
+- diff.txt
+- log.txt
+- poc.html

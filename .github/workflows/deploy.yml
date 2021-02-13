@@ -1,0 +1,32 @@
+name: Deploy
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container:
+      image: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    steps:
+      - name: Install rCDS
+        run: |
+          pip3 install https://dicegang.storage.googleapis.com/rcds/rcds-0.1.4-py3-none-any.whl
+      - name: Login to gcloud
+        env:
+          GCLOUD_SA_TOKEN: ${{ secrets.GCLOUD_SA_TOKEN }}
+        run: |
+          printf "%s" "$GCLOUD_SA_TOKEN" > /run/.sa-key.json
+          gcloud auth activate-service-account <sa>@dicegang.iam.gserviceaccount.com --key-file=/run/.sa-key.json
+          shred -u /run/.sa-key.json
+          gcloud config set project dicegang
+          gcloud auth configure-docker gcr.io --quiet
+          gcloud container clusters get-credentials --project dicegang --zone us-east1-b <cluster>
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Run rCDS
+        env:
+          RCDS_RCTF_URL: https://ctf.dicega.ng/
+          RCDS_RCTF_TOKEN: ${{ secrets.RCDS_RCTF_TOKEN }}
+        run: |
+          rcds deploy

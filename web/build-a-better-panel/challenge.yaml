@@ -1,0 +1,28 @@
+name: Build a Better Panel
+author: Jim
+visible: true
+description: |-
+  BAP wasn't secure enough. Now the admin is a bit smarter, see if you can still get the flag! If you experience any issues, send it [here](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=build-a-better-panel)
+
+  NOTE: The admin will only visit sites that match the following regex `^https:\/\/build-a-better-panel\.dicec\.tf\/create\?[0-9a-z\-\=]+$`
+
+  Site: {{link}}
+
+flag: dice{un1n73nd3d_54d_1n73nd3d_h4ppy}
+
+provide:
+  - ./build-a-better-panel.tar.gz
+
+containers:
+  app:
+    build: ./app
+    resources:
+      limits:
+        cpu: 100m
+        memory: 100M
+    ports: [31337]
+
+expose:
+  app:
+    - target: 31337
+      http: build-a-better-panel

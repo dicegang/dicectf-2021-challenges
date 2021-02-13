@@ -1,0 +1,8 @@
+name: Survey
+author: defund
+description: |-
+  Take this [survey](https://forms.gle/5NBtpPQHfzJrgyZT8)!
+
+flag: dice{ctf}
+value: 0
+tiebreakEligible: false

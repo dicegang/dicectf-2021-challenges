@@ -1,0 +1,3 @@
+[cache]
+enabled = false
+directory = "/app/cache"

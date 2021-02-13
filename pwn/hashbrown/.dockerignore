@@ -1,0 +1,7 @@
+*
+!Dockerfile
+!initramfs.cpio
+!bzImage
+!run.sh
+!pow.sh
+!jail-hook.sh

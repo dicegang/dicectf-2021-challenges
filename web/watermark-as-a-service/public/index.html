@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Watermark as a Service</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #444444;
+        color: #fff;
+        min-width: 100vw;
+        min-height: 100vh;
+        font-family: system-ui, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 80%;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 1.25rem;
+      }
+    </style>
+
+    <body>
+      <div id="snap-container">
+        <h1>Watermark as a Service</h1>
+        <p>
+          Have you ever wanted to take screenshots with the DiceCTF logo? Now
+          you can.
+        </p>
+
+        <input type="text" class="image-url" value="https://ctf.dicega.ng" />
+        <button onclick="load()">Snap</button>
+
+        <div style="padding-top: 20px">
+          <img id="snap" src="" />
+        </div>
+      </div>
+
+      <script>
+        var load = function () {
+          var url = document.getElementsByClassName("image-url")[0].value;
+          document
+            .getElementById("snap")
+            .setAttribute("src", "/snap?url=" + url);
+        };
+      </script>
+    </body>
+  </head>
+</html>

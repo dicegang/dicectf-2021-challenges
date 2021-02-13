@@ -1,0 +1,23 @@
+author: hgarrereyn
+description: |-
+  DICE IS YOU
+
+  Controls:
+  - wasd/arrows: movement
+  - space: advance a tick without moving
+  - q: quit to main menu
+  - r: restart current level
+  - z: undo a move (only works for past 256 moves and super buggy)
+
+  Play: {{link}}
+flag: dice{d1ce_1s_y0u_is_th0nk_73da6}
+name: dice-is-you
+
+containers:
+  main:
+    build: .
+    ports: [80]
+expose:
+  main:
+  - target: 80
+    http: dice-is-you

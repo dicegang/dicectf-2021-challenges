@@ -1,0 +1,23 @@
+name: Web IDE
+author: BrownieInMotion
+visible: true
+description: |-
+  Work on JavaScript projects directly in your browser! Make something cool? Send it [here](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=web-ide)
+
+  {{link}}
+
+flag: dice{c0uldn7_f1nd_4_b4ckr0nym_f0r_1de}
+
+provide:
+  - index.js
+
+containers:
+  main:
+    build: .
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: web-ide

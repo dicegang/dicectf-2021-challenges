@@ -1,0 +1,26 @@
+name: signature sheep scheming signature schemes
+author: defund
+visible: true
+description: |-
+  The National Sheep Agency is pushing to standardize their own post-quantum digital signature. Something's not right...
+
+  `{{nc}}`
+
+flag:
+  file: ./flag.txt
+provide:
+- ./lwe.py
+- ./shake.py
+- ./server.py
+- ./public.key
+- ./signatures.bin
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports: [3000]
+expose:
+  main:
+    - target: 3000
+      tcp: 31614

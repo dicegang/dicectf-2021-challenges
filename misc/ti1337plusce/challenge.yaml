@@ -1,0 +1,19 @@
+name: TI-1337 Plus CE
+author: kmh
+description: |-
+  [Texas Instruments](https://twitter.com/themalwareman) just released the latest iteration of their best-selling [TI-1337 series](https://ctftime.org/task/8362): the TI-1337 Plus Color Edition!
+
+  `nc {{host}} {{port}}`
+provide:
+  - ./ti1337plusce.tar.gz
+flag:
+  file: ./deploy/flag.txt
+containers:
+  main:
+    build: deploy
+    ports:
+      - 1337
+expose:
+  main:
+    - target: 1337
+      tcp: 31337

@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Dice is You</title>
+    </head>
+    <body>
+        <div id='game_container'>
+            <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+        </div>
+        <div id='credit'>
+            <span><i>Dice is You</i> by <a href='https://twitter.com/hgarrereyn' target='_blank'>@hgarrereyn</a>,</span>
+            <span>inspired by <a href='https://hempuli.com/baba/', target='_blank'>Baba is You</a></span>
+        </div>
+
+        <style>
+            #game_container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 100px;
+
+                background-color: rgb(52, 73, 94);
+            }
+
+            #canvas {
+                max-width: 100%;
+                max-height: 100%;
+
+                image-rendering: optimizeSpeed;
+                image-rendering: -moz-crisp-edges;
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: optimize-contrast;
+                image-rendering: pixelated;
+                -ms-interpolation-mode: nearest-neighbor;
+            }
+
+            @media (orientation: landscape) { #canvas { height:100%; } }
+            @media (orientation: portrait) { #canvas { width:100%; } }
+
+            #credit {
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                padding: 15px;
+
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                color: white;
+            }
+
+            #credit a {
+                color: red;
+                text-decoration: none;
+            }
+        </style>
+
+        <script>
+            var Module = {
+                preRun: [],
+                postRun: [],
+                print: console.log,
+                printErr: console.error,
+                canvas: (function() {
+                    var canvas = document.getElementById('canvas');
+
+                    // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+                    // application robust, you may want to override this behavior before shipping!
+                    // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+                    canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+
+                    return canvas;
+                })(),
+                setStatus: function() {}
+            };
+
+        </script>
+        <script async type="text/javascript" src="app.js"></script>
+    </body>
+</html>

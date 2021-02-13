@@ -1,0 +1,18 @@
+Challenge description:
+We've found some sort of advanced codebreaker machine, and some encrypted messages it was trying to break. Can you crack it first?
+
+------------------------------------------------------------------
+
+Hint: this circuit is implementing a famous quantum algorithm to factor a hardcoded number, the public modulus N.
+
+Hint: the challenge can be solved by analyzing the data flow through just one or two of the "circuit_part_X.qasm" files.
+
+Hint: modular exponentiation is just repeated conditional modular multiplication, and modular multiplication is just repeated conditional addition.
+
+Final Hint (if no one's solving it, hopefully not needed): the exponent qubits are used to conditionally set specific registers.
+
+------------------------------------------------------------------
+
+Suggested points (out of 500)
+200
+

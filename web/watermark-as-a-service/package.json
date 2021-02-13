@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "ip": "^1.1.5",
+    "puppeteer": "^7.0.1",
+    "sharp": "^0.27.1"
+  }
+}

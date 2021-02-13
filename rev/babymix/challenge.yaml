@@ -1,0 +1,8 @@
+name: babymix
+author: mmaekr
+description: |-
+    Just the right mix of characters will lead you to the flag :)
+provide:
+    - ./babymix
+flag:
+    file: ./flag.txt

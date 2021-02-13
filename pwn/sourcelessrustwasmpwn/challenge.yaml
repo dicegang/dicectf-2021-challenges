@@ -1,0 +1,48 @@
+name: sourceless rust wasm pwn
+author: poortho
+visible: true
+description: |-
+  I hope you like sourceless rust wasm pwn!
+
+  Haha, just kidding, here's the source.
+
+  ... what, did you think the other part was a joke too?
+
+  Run with `wasmtime ./wasmpwn.wasm --dir ./`
+
+  `nc {{host}} {{port}}`
+provide:
+- ./wasm.rs
+- ./wasmpwn.wasm
+- ./excalibur.txt
+flag:
+  file: ./flag.txt
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports:
+    - 5000
+    environment:
+      JAIL_WALL_TIME: '90'
+    securityContext:
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - all
+        add:
+          - chown
+          - setuid
+          - setgid
+          - sys_admin
+          - setpcap
+      seccompProfile: jail.json
+    k8s:
+      deployment:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+expose:
+  main:
+  - target: 5000
+    tcp: 31798

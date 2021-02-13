@@ -1,0 +1,8 @@
+name: Cuckoo's Nest
+author: defund
+description: |-
+  Enter [here](https://discord.gg/CbCXtrDE5m)
+
+flag: dice{gang}
+value: 1
+tiebreakEligible: false

@@ -1,0 +1,29 @@
+docker:
+  image:
+    prefix: gcr.io/dicegang/ctf/2021
+
+flagFormat: dice\{[a-zA-Z0-9_,.'?!@$&<>*:-]*\}
+
+defaults:
+  containers:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 150Mi
+      requests:
+        cpu: 10m
+        memory: 30Mi
+
+backends:
+- resolve: k8s
+  options:
+    domain: dicec.tf
+    annotations:
+      ingress:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/router.middlewares: "ingress-nocontenttype@kubernetescrd,ingress-ratelimit@kubernetescrd"
+- resolve: rctf
+  options:
+    scoring:
+      minPoints: 100
+      maxPoints: 500

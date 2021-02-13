@@ -1,0 +1,25 @@
+name: Build a Panel
+author: Jim
+description: |-
+  You can never have too many widgets and BAP organization is the future. If you experience any issues, send it [here](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=build-a-panel)
+
+  Site: {{link}}
+
+flag: dice{ch41n_ChAIn_aNd_m0Re_cHaIn}
+
+provide:
+  - ./build-a-panel.tar.gz
+
+containers:
+  app:
+    build: ./app
+    resources:
+      limits:
+        cpu: 100m
+        memory: 100M
+    ports: [31337]
+
+expose:
+  app:
+    - target: 31337
+      http: build-a-panel

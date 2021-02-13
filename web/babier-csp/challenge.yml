@@ -1,0 +1,26 @@
+name: Babier CSP
+author: notdeghost
+description: |-
+  [Baby CSP](https://2020.justctf.team/challenges/14) was too hard for us, try Babier CSP. 
+
+  {{link}}
+
+  [Admin Bot](https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=babier-csp)
+  
+  The admin will set a cookie `secret` equal to `config.secret` in index.js. 
+
+flag: dice{web_1s_a_stat3_0f_grac3_857720}
+
+provide:
+  - index.js
+
+containers:
+  main:
+    build: .
+    ports:
+      - 3000
+
+expose:
+  main:
+    - target: 3000
+      http: babier-csp

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Web IDE: Login</title>
+    <link rel="stylesheet" href="src/styles.css"/>
+    <script src="src/index.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Login</h1>
+      <form method='POST' action="/ide/login">
+        <span>
+          <input type="radio" name="user" value="guest"/>
+          <label for="guest">Guest</label>
+          <input type="radio" name="user" value="admin" checked/>
+          <label for="admin">Admin</label>
+        </span>
+        <input type="password" name="password"/>
+        <input type="submit" value="Submit"/>
+      </form>
+    </div>
+  </body>
+</html>

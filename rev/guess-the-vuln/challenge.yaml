@@ -1,0 +1,29 @@
+name: Guess the Vuln
+author: aplet123
+visible: true
+description: |-
+  Sourceless web is the best! Luckily, we intercepted the server and a message the server was trying to transmit.
+
+  Flag only has lowercase letters and underscores within the curly braces.
+
+  You **do not** have to fuzz the challenge to solve it. Please don't fuzz it, I'm begging you.
+
+  {{link}}
+provide:
+  - ./server
+  - ./interception
+flag:
+  file: flag.txt
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports:
+      - 31337
+    securityContext:
+      readOnlyRootFilesystem: true
+expose:
+  main:
+    - target: 31337
+      http: guess-the-vuln

@@ -1,0 +1,10 @@
+name: lambda
+author: hgarrereyn
+visible: true
+description: |-
+  `(lambda _:_(_))((lambda _,__='': _(_,__+'oh no, ')))`
+provide:
+  - ./lambda.py
+  - ./prog
+flag:
+  file: ./flag.txt

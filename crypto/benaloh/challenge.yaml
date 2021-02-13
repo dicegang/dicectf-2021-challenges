@@ -1,0 +1,10 @@
+name: benaloh
+author: defund
+visible: true
+description: |-
+  No, it can't be. Who chose the nonces? I demand to know! I can't remember the last time... I saw an LCG.
+
+flag: dice{gr:obner!_!}
+provide:
+- ./benaloh.py
+- ./out.txt

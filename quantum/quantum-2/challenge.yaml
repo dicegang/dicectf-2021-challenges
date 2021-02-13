@@ -1,0 +1,13 @@
+name: quantum 2
+author: ireland
+visible: true
+description: |-
+  Let's increase the difficulty. Same algorithm, new circuit.
+
+  In practice, quantum compilers and programmers make use of techniques which don't exist in classical reversible computing, even for seemingly classical subroutines. While this circuit has more gates than the `quantum 1` circuit, it also requires much fewer qubits. In fact, the main computational step only uses [2n+3 qubits](https://arxiv.org/abs/quant-ph/0205095).
+
+provide:
+- ./circuit_parts.7z
+- ./encrypted_message.rsa
+flag:
+  file: ./flag.txt

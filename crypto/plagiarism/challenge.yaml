@@ -1,0 +1,13 @@
+name: plagiarism
+author: ireland
+description: |-
+  >>> Can I copy your CTF challenge?
+
+  >>  Yeah, just change it up a bit so it doesn't look obvious you copied.
+
+  `https://hxp.io/blog/1/RuCTF%20Quals%202014:%20Crypto%20500%20%22decrypt%20message%22%20writeup/`
+
+provide:
+- ./challenge.txt
+flag:
+  file: ./flag.txt

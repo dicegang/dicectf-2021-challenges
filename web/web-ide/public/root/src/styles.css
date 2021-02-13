@@ -1,0 +1,26 @@
+html {
+  margin: 0; padding: 0;
+  height: 100%
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#sandbox {
+  background-color: #EEE;
+  margin: 0; padding: 10px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h1 {
+  padding: 50px;
+}
+
+a {
+  padding-left: 50px;
+}

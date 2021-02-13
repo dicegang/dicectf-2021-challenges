@@ -1,0 +1,1 @@
+gcc -s -Wl,-z,relro,-z,now -no-pie ./flippidy.c -o flippidy && ./flippidy

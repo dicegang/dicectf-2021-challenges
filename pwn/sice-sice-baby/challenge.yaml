@@ -1,0 +1,40 @@
+name: Sice Sice Baby
+author: poortho
+description: |-
+  "The challenge author, poortho, is notorious for only writing glibc heap problems."
+
+  `nc {{host}} {{port}}`
+provide:
+- ./sice_sice_baby
+- ./libc.so.6
+flag:
+  file: ./flag.txt
+
+containers:
+  main:
+    build: .
+    replicas: 2
+    ports:
+    - 5000
+    securityContext:
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - all
+        add:
+          - chown
+          - setuid
+          - setgid
+          - sys_admin
+          - setpcap
+      seccompProfile: jail.json
+    environment:
+      JAIL_WALL_TIME: "90"
+    k8s:
+      deployment:
+        annotations:
+          container.apparmor.security.beta.kubernetes.io/main: unconfined
+expose:
+  main:
+  - target: 5000
+    tcp: 31914

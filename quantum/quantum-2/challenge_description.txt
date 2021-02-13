@@ -1,0 +1,18 @@
+Challenge description:
+
+Let's increase the difficulty. Same algorithm, new circuit.
+
+In practice, quantum compilers and programmers make use of techniques which don't exist in classical reversible computing, even for seemingly classical subroutines.
+
+------------------------------------------------------------------
+
+Hint: the quantum fourier transform is used repeatedly throughout the circuit.
+
+Hint: while this circuit has more gates than the "Quantum Rev 1" circuit, it also requires much fewer qubits. In fact, the main computational step only uses "2n+3 qubits".
+
+------------------------------------------------------------------
+
+Suggested points (out of 500)
+250 - 350
+
+

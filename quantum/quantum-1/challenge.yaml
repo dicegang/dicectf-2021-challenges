@@ -1,0 +1,14 @@
+name: quantum 1
+author: ireland
+description: |-
+  We've found some sort of advanced codebreaker machine, and some encrypted messages it was trying to break. Can you crack it first?
+
+  Hint: This circuit is implementing a famous quantum algorithm to factor the public modulus. This modulus *should* be stored in the classical memory before evaluating the circuit (and immediately copied via `cnot` to the quantum memory during `circuit_initialization.qasm`), but is not provided in the challenge. However, the modulus was used to derive many numbers which are used by subroutines in the quantum algorithm, and all of those numbers are hardcoded in the circuit.
+
+  Hint: modular exponentiation is just repeated conditional modular multiplication, and modular multiplication is just repeated conditional modular addition, and modular addition is just several regular additions.
+
+provide:
+- ./circuit_parts.7z
+- ./encrypted_message.rsa
+flag:
+  file: ./flag.txt
